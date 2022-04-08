@@ -1,0 +1,27 @@
+name: Move issues into Project Board Column
+on:
+  pull_request:
+    types: [ closed ]
+jobs:
+  move-issue-to-repository-project-column-on-pull-request:
+    name: Move issues to repository project column
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move all issues related to current PR(into main branch) and child PRs to 'Done' column
+        uses: fojia/action-move-issues-to-column@master
+        with:
+          project: 'Actions Project'
+          column: 'Released'
+          owner: 'fojia'
+          type: 'user'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+      - name: Move all issues related to current PR(into main branch) and child PRs to 'Done' column
+        uses: fojia/action-move-issues-to-column@master
+        with:
+          project: 'Actions Project'
+          column: 'Done'
+          owner: 'fojia'
+          type: 'user'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop
