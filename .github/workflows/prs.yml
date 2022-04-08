@@ -14,7 +14,7 @@ jobs:
           column: 'Released'
           owner: 'fojia'
           type: 'user'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GA_ACCESS_TOKEN }}
           branch: main
       - name: Move all issues related to current PR(into main branch) and child PRs to 'Done' column
         uses: fojia/action-move-issues-to-column@master
@@ -23,5 +23,5 @@ jobs:
           column: 'Done'
           owner: 'fojia'
           type: 'user'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GA_ACCESS_TOKEN }}
           branch: develop
